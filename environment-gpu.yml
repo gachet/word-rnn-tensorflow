@@ -1,4 +1,4 @@
-name: deeplearn
+name: deeplearn-gpu
 channels:
 - !!python/unicode
   'defaults'
@@ -15,5 +15,5 @@ dependencies:
 - seaborn==0.8
 - h5py==2.7.0
 - pip:
-  - tensorflow==1.2.1
+  - tensorflow-gpu==1.2.1
   - keras==2.0.6
