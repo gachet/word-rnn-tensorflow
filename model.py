@@ -25,6 +25,10 @@ class Model():
         cells = []
         for _ in range(args.num_layers):
             cell = cell_fn(args.rnn_size)
+            if (not infer) and (args.output_keep_prob < 1.0 or args.input_keep_prob < 1.0):
+                cell = rnn.DropoutWrapper(cell,
+                                          input_keep_prob=args.input_keep_prob,
+                                          output_keep_prob=args.output_keep_prob)
             cells.append(cell)
 
         self.cell = cell = rnn.MultiRNNCell(cells)
